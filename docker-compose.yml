@@ -1,0 +1,27 @@
+services:
+  trading-bots-app:
+    image: ghcr.io/zor07/trading_bots:latest
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:8080"
+    env_file:
+      - .env
+    environment:
+      JAVA_TOOL_OPTIONS: "-Djava.net.preferIPv4Stack=true"
+    depends_on:
+      - trading-bots-db
+
+  trading-bots-db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:5437:5432"
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - trading_bots_pgdata:/var/lib/postgresql/data
+
+volumes:
+  trading_bots_pgdata:
