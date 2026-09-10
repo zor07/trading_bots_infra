@@ -3,7 +3,7 @@ services:
     image: ghcr.io/zor07/trading_bots:latest
     restart: unless-stopped
     ports:
-      - "127.0.0.1:8080:8080"
+      - "127.0.0.1:8680:8080"
     env_file:
       - .env
     environment:
