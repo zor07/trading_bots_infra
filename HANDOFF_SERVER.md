@@ -3,7 +3,7 @@
 ## Что нужно сделать
 
 1. Клонировать infra репо (если ещё не):
-   git clone git@github.com:zor07/trading-bots-infra.git /opt/trading-bots-infra
+   git clone git@github.com:zor07/trading_bots_infra.git /opt/trading_bots_infra
 
 2. Создать .env из .env.example, заполнить реальными значениями:
    cp .env.example .env
