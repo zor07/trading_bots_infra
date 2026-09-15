@@ -8,6 +8,9 @@ services:
       - .env
     environment:
       JAVA_TOOL_OPTIONS: "-Djava.net.preferIPv4Stack=true"
+      SPRING_PROFILES_ACTIVE: prod
+    volumes:
+      - /var/log/trading-bots:/app/logs
     depends_on:
       - trading-bots-db
 
